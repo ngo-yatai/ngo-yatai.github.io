@@ -40,9 +40,17 @@ a.card::after{content:"›";position:absolute;right:16px;top:50%;transform:trans
 footer{text-align:center;font-size:.72rem;color:var(--sub);margin-top:34px}
 footer a{color:inherit}
 .hide{display:none!important}
+.lang{position:fixed;top:max(12px,env(safe-area-inset-top));right:12px;display:flex;gap:4px;background:#ffffffd9;backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:999px;padding:3px;z-index:10}
+.lang button{border:0;background:none;font:inherit;font-size:.78rem;font-weight:700;color:var(--sub);padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
 </style>
 </head>
 <body>
+<nav class="lang" aria-label="Language">
+  <button type="button" data-lang="ja" lang="ja">日本語</button>
+  <button type="button" data-lang="en" lang="en">EN</button>
+  <button type="button" data-lang="zh" lang="zh-Hans">中文</button>
+</nav>
 <main>
   <header>
     <div class="who">
@@ -54,23 +62,35 @@ footer a{color:inherit}
   </header>
   <p class="bio hide" id="bio"></p>
   <ul id="links"></ul>
-  <footer>一般社団法人カンボジア YATAI SCHOOL</footer>
+  <footer id="foot">一般社団法人カンボジア YATAI SCHOOL</footer>
 </main>
 <script>
 /* 中身の編集は Google スプレッドシートで行う。下の FALLBACK は読み込めなかった時の控え。 */
 var SHEET_ID = "1C-6ju-JZ2Y0RAB4ESd_7rWJfR6THV-_qDhO83A8GZM4";
-var CACHE_KEY = "yatai-card-v3";
-// 列: 種類, 表示名, 説明, URL, アイコン, 強調, 表示する
+var CACHE_KEY = "yatai-card-v4";
+// 列: 種類, 表示名, 説明, URL, アイコン, 強調, 表示する, 表示名(英語), 説明(英語), 表示名(中国語), 説明(中国語)
 var FALLBACK = [
   ["ロゴ","","","https://yatai-school.org/wp-content/uploads/2024/06/White_screen.png","","","○"],
-  ["名前","東川 竜太","","","","","○"],
+  ["名前","東川 竜太","","","","","○","Ryuta Higashikawa","","東川 竜太",""],
   ["肩書き","NGO YATAI for Children Organization","","","","","○"],
-  ["肩書き","YATAI SCHOOL 校長","","","","","○"],
-  ["リンク","動画でわかる YATAI SCHOOL","チャンネル登録よろしくお願いします","https://www.youtube.com/@YATAI_arrows","youtube","○","○"],
-  ["リンク","公式 webサイト","","https://yatai-school.org/","web","","○"],
-  ["リンク","公式LINE","","https://line.me/R/ti/p/@557uooum","line","","○"],
-  ["リンク","メールを送る","","mailto:contactcambodia@yatai-school.org","mail","","○"]
+  ["肩書き","YATAI SCHOOL 校長","","","","","○","Principal, YATAI SCHOOL","","YATAI SCHOOL 校长",""],
+  ["リンク","動画でわかる YATAI SCHOOL","チャンネル登録よろしくお願いします","https://www.youtube.com/@YATAI_arrows","youtube","○","○","YATAI SCHOOL on YouTube","Please subscribe to our channel","视频了解 YATAI SCHOOL","欢迎订阅我们的频道"],
+  ["リンク","公式 webサイト","","https://yatai-school.org/","web","","○","Official Website","","官方网站",""],
+  ["リンク","公式LINE","","https://line.me/R/ti/p/@557uooum","line","","○","Official LINE","","官方 LINE",""],
+  ["リンク","メールを送る","","mailto:contactcambodia@yatai-school.org","mail","","○","Send an Email","","发送邮件",""]
 ];
+var UI = {
+  ja:{foot:"一般社団法人カンボジア YATAI SCHOOL", title:"YATAI SCHOOL リンク集", html:"ja"},
+  en:{foot:"Cambodia YATAI SCHOOL", title:"YATAI SCHOOL Links", html:"en"},
+  zh:{foot:"一般社团法人 柬埔寨 YATAI SCHOOL", title:"YATAI SCHOOL 链接", html:"zh-Hans"}
+};
+var LANG = (function(){
+  var m = location.search.match(/[?&]lang=(ja|en|zh)/), v = m ? m[1] : "";
+  try { v = v || localStorage.getItem("yatai-lang") || ""; } catch(e) {}
+  if (!v) { var n = (navigator.language || "ja").toLowerCase(); v = n.indexOf("ja") === 0 ? "ja" : n.indexOf("zh") === 0 ? "zh" : "en"; }
+  return v;
+})();
+var LAST_ROWS = null;
 
 var P = 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
 var ICONS = {
@@ -104,6 +124,11 @@ function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.classN
 function on(v){ v=String(v==null?"":v).trim(); return v!=="" && v!=="false" && v!=="FALSE" && v!=="×" && v!=="0"; }
 
 function render(rows){
+  LAST_ROWS = rows;
+  var ui = UI[LANG] || UI.ja;
+  document.documentElement.lang = ui.html;
+  document.getElementById("foot").textContent = ui.foot;
+  Array.prototype.forEach.call(document.querySelectorAll(".lang button"), function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-lang") === LANG ? "true" : "false"); });
   var list = document.getElementById("links"); list.textContent = "";
   var bio = document.getElementById("bio"), photo = document.getElementById("photo"), logo = document.getElementById("logo");
   bio.classList.add("hide"); photo.classList.add("hide");
@@ -112,9 +137,14 @@ function render(rows){
   rows.forEach(function(r){
     var kind=String(r[0]||"").trim(), label=String(r[1]||"").trim(), desc=String(r[2]||"").trim(),
         url=safeUrl(r[3]), ic=r[4], hi=on(r[5]), show=on(r[6]);
+    var off = LANG === "en" ? 7 : LANG === "zh" ? 9 : -1;
+    if (off > 0) {
+      var tl = String(r[off]||"").trim(), td = String(r[off+1]||"").trim();
+      if (tl) { label = tl; desc = td; } // 訳が無い行は日本語のまま
+    }
     if (kind !== "小ボタン") group = null;
     if (!show) return;
-    if (kind === "名前") { document.getElementById("name").textContent = label; document.title = label + "｜YATAI SCHOOL リンク集"; }
+    if (kind === "名前") { document.getElementById("name").textContent = label; document.title = label + "｜" + UI[LANG].title; }
     else if (kind === "肩書き") titles.push(label);
     else if (kind === "紹介文") { bio.textContent = label; bio.classList.toggle("hide", !label); }
     else if (kind === "ロゴ") { if (url) logo.src = url; }
@@ -149,6 +179,14 @@ window.yataiLinks = function(resp){
     try { localStorage.setItem(CACHE_KEY, JSON.stringify(rows)); } catch(e) {}
   } catch(e) {}
 };
+document.querySelector(".lang").addEventListener("click", function(e){
+  var b = e.target.closest && e.target.closest("button[data-lang]");
+  if (!b || b.getAttribute("data-lang") === LANG) return;
+  LANG = b.getAttribute("data-lang");
+  try { localStorage.setItem("yatai-lang", LANG); } catch(e) {}
+  render(LAST_ROWS || FALLBACK);
+  track("lang", LANG);
+});
 /* ---- 流入経路の計測（Cookie なし・個人を特定しない） ----
    QR やSNSに載せるURLに ?s=経路名 を付ける（例 ?s=card = 名刺）。
    開いた時と各ボタンを押した時に hit.gif へ記録し、サーバーのログを集計する。 */
