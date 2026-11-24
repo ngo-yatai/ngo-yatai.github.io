@@ -26,11 +26,11 @@ main{position:relative;max-width:430px;margin:0 auto;min-height:100vh;min-height
 .name-ja{font-size:.88rem;font-weight:600;color:var(--sub);margin:5px 0 11px;letter-spacing:.08em}
 .photo{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 14px #15327f22}
 .bio{font-size:.85rem;color:var(--sub);margin:0 4px 12px;white-space:pre-line}
-ul.links{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ul.links{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .row{display:flex;align-items:stretch}
 .tab{flex:none;width:32px;margin-right:-8px;border-radius:12px 0 0 12px;background:#e6ecf8cc;border:1px solid var(--line);border-right:0;display:flex;align-items:center;padding-left:7px;color:var(--navy)}
 .tab svg{width:15px;height:15px}
-.card{flex:1;min-width:0;position:relative;display:block;background:var(--card);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);border:1px solid var(--line);border-radius:14px;padding:10px 34px 10px 14px;text-decoration:none;color:inherit;transition:transform .08s,border-color .15s,box-shadow .15s}
+.card{flex:1;min-width:0;position:relative;display:block;background:var(--card);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);border:1px solid var(--line);border-radius:14px;padding:8px 34px 8px 14px;text-decoration:none;color:inherit;transition:transform .08s,border-color .15s,box-shadow .15s}
 .card{padding-right:14px}
 .row{transition:transform .18s cubic-bezier(.3,.7,.3,1)}
 .row .card{transition:border-color .15s,box-shadow .15s,filter .1s}
@@ -48,7 +48,7 @@ ul.links{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .pill:active{transform:scale(.9) translateY(1px);box-shadow:inset 0 2px 5px #15327f33;transition-duration:.06s}
 .pill svg{width:15px;height:15px}
 .grp .card{padding-right:14px}
-.site .card{display:flex;align-items:center;gap:10px;padding:7px 10px 7px 14px}
+.site .card{display:flex;align-items:center;gap:10px;padding:5px 10px 5px 14px}
 .site .t{flex:1}
 .site .pills{margin:0;flex:none}
 .site .pill{padding:3px 10px;border-radius:10px;background:#fff}
@@ -69,16 +69,17 @@ ul.links{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .lang .flag{font-size:1.35rem;line-height:1}
 .lang .ring{position:absolute;left:0;top:3px;border-radius:999px;background:#e6ecf8;box-shadow:inset 0 0 0 2px var(--navy);transition:transform .28s cubic-bezier(.3,.7,.3,1),width .28s;pointer-events:none}
 /* 写真カルーセル */
-.gallery{position:relative;flex:1 1 auto;min-height:126px;margin:10px -14px 0;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
+.gallery{position:relative;flex:1 1 auto;min-height:126px;margin:8px -14px 0;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
 .gallery.drag{cursor:grabbing}
 .slide{position:absolute;left:50%;top:50%;border-radius:14px;overflow:hidden;background:#dfe4f0 center/cover no-repeat;box-shadow:0 8px 22px #15327f2e;will-change:transform,filter,opacity}
 .slide img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
 .slide .ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:800;letter-spacing:.08em;text-shadow:0 1px 6px #0003}
 .slide .ph b{font-size:2rem;line-height:1}
 .slide .ph small{font-size:.7rem;opacity:.9;margin-top:4px}
-.dots{display:flex;justify-content:center;gap:5px;margin:6px 0 0}
+.dots{display:flex;justify-content:center;gap:4px;margin:6px 0 0}
 .dots i{width:5px;height:5px;border-radius:50%;background:#c9d1e6;transition:background .2s,transform .2s}
 .dots i.on{background:var(--navy);transform:scale(1.3)}
+@media (max-height:620px){main{padding-top:max(12px,env(safe-area-inset-top))} .lang{top:max(12px,env(safe-area-inset-top))} .brand{min-height:44px;margin:0 0 6px} .logo{width:46px} .titles{margin-bottom:8px} .name-ja{margin-bottom:8px} .row:not(.site) .card{padding-top:6px;padding-bottom:6px} .gallery{min-height:112px}}
 </style>
 </head>
 <body>
@@ -108,7 +109,7 @@ ul.links{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 <script>
 /* 中身の編集は Google スプレッドシートで行う。下の FALLBACK は読み込めなかった時の控え。 */
 var SHEET_ID = "1C-6ju-JZ2Y0RAB4ESd_7rWJfR6THV-_qDhO83A8GZM4";
-var CACHE_KEY = "yatai-card-v7";
+var CACHE_KEY = "yatai-card-v8";
 // 列: 種類, 表示名, 説明, URL, アイコン, 強調, 表示する, 表示名(英語), 説明(英語), 表示名(中国語), 説明(中国語)
 // 肩書き: 表示名=団体名, 説明=役職, アイコン=国旗。 写真集: URL=写真（行の順に並ぶ。1枚も無ければ仮の写真）
 var FALLBACK = [
@@ -135,7 +136,23 @@ var FALLBACK = [
   ["写真集","","","/link/photos/p10.jpg","","","○"],
   ["写真集","","","/link/photos/p11.jpg","","","○"],
   ["写真集","","","/link/photos/p12.jpg","","","○"],
-  ["写真集","","","/link/photos/p13.jpg","","","○"]
+  ["写真集","","","/link/photos/p13.jpg","","","○"],
+  ["写真集","","","/link/photos/p14.jpg","","","○"],
+  ["写真集","","","/link/photos/p15.jpg","","","○"],
+  ["写真集","","","/link/photos/p16.jpg","","","○"],
+  ["写真集","","","/link/photos/p17.jpg","","","○"],
+  ["写真集","","","/link/photos/p18.jpg","","","○"],
+  ["写真集","","","/link/photos/p19.jpg","","","○"],
+  ["写真集","","","/link/photos/p20.jpg","","","○"],
+  ["写真集","","","/link/photos/p21.jpg","","","○"],
+  ["写真集","","","/link/photos/p22.jpg","","","○"],
+  ["写真集","","","/link/photos/p23.jpg","","","○"],
+  ["写真集","","","/link/photos/p24.jpg","","","○"],
+  ["写真集","","","/link/photos/p25.jpg","","","○"],
+  ["写真集","","","/link/photos/p26.jpg","","","○"],
+  ["写真集","","","/link/photos/p27.jpg","","","○"],
+  ["写真集","","","/link/photos/p28.jpg","","","○"],
+  ["写真集","","","/link/photos/p29.jpg","","","○"],
 ];
 var UI = {
   ja:{title:"YATAI SCHOOL", html:"ja", copy:"コピー", copied:"コピー済", toast:"メールアドレスをコピーしました"},
@@ -177,8 +194,7 @@ function safeUrl(u){
   if (/^(https?:\/\/|mailto:|tel:)/i.test(u)) return u;
   if (/^[\w.\-\/]+\.(png|jpe?g|webp|svg|gif)$/i.test(u)) return u; // 同じ場所に置いた画像
   return "";
-}
-function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+}function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
 function on(v){ v=String(v==null?"":v).trim(); return v!=="" && v!=="false" && v!=="FALSE" && v!=="×" && v!=="0"; }
 
 function render(rows){
@@ -281,7 +297,7 @@ var GALLERY = (function(){
   function wrap(d){ if (n < 2) return d; d = ((d % n) + n) % n; return d > n / 2 ? d - n : d; }
   function size(){
     var cw = root.clientWidth, ch = root.clientHeight;
-    W = Math.min(cw * .62, ch * .9 * 4 / 3); H = W * .75;
+    W = Math.min(cw * .7, ch * .94 * 1.5); H = W / 1.5;
     items.forEach(function(it){ it.style.width = W + "px"; it.style.height = H + "px"; it.style.marginLeft = -W / 2 + "px"; it.style.marginTop = -H / 2 + "px"; });
     layout();
   }
@@ -289,6 +305,7 @@ var GALLERY = (function(){
     var R = root.clientWidth * .44, cur = Math.round(wrap(pos) + n) % (n || 1);
     items.forEach(function(it, i){
       var d = wrap(i - pos), ad = Math.abs(d);
+      if (ad < 5.5 && it.firstChild && it.firstChild.dataset && it.firstChild.dataset.src) { it.firstChild.src = it.firstChild.dataset.src; it.firstChild.removeAttribute("data-src"); }
       if (ad > 3.4) { it.style.visibility = "hidden"; return; }
       it.style.visibility = "visible";
       var ang = Math.max(-1.75, Math.min(1.75, d * .62));
@@ -316,7 +333,7 @@ var GALLERY = (function(){
       if (p.ph) { var h = HUES[i % HUES.length], box = el("div", "ph");
         box.style.background = "linear-gradient(135deg,hsl(" + h + " 70% 62%),hsl(" + (h + 40) + " 65% 45%))";
         box.appendChild(el("b", "", String(p.ph))); box.appendChild(el("small", "", "PHOTO")); it.appendChild(box); }
-      else { var im = el("img"); im.src = p.src; im.alt = p.alt || ""; im.loading = i < 4 || i > n - 4 ? "eager" : "lazy"; im.draggable = false; it.appendChild(im); }
+      else { var im = el("img"); im.setAttribute("data-src", p.src); im.alt = p.alt || ""; im.decoding = "async"; im.draggable = false; it.appendChild(im); }
       it.setAttribute("data-i", i); items.push(it); root.appendChild(it); dots.appendChild(el("i"));
     });
     pos = target = 0; size();
