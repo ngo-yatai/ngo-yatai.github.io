@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YATAI SCHOOL リンク集</title>
+<meta name="theme-color" content="#f4f6fb">
+<style>
+:root{--navy:#15327f;--navy-ink:#1d2a4d;--gold:#f2b01e;--sub:#5d6782;--line:#dfe4f0;--card:#ffffffcc;--hi:#e6ecf8}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--navy-ink);line-height:1.55;min-height:100vh;
+  background:radial-gradient(1200px 600px at 20% -10%,#fff7e0 0%,transparent 60%),linear-gradient(180deg,#f7f8fc 0%,#eef2fa 100%);
+  padding:max(28px,env(safe-area-inset-top)) 16px 48px}
+main{max-width:430px;margin:0 auto}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:8px 6px 22px}
+.who{min-width:0;flex:1}
+.brand{display:flex;align-items:center;gap:12px;margin:34px 0 18px}
+.logo{display:block;width:68px;height:auto;flex:none}
+.title{font-size:.86rem;font-weight:700;color:var(--navy-ink);margin:0;line-height:1.45;white-space:pre-line}
+.name{font-size:1.75rem;font-weight:800;margin:0;letter-spacing:.03em;color:var(--navy);line-height:1.25;display:inline-block;padding-bottom:6px;border-bottom:1px solid var(--navy)}
+.name-ja{font-size:.95rem;font-weight:600;color:var(--sub);margin:6px 0 0;letter-spacing:.08em}
+.photo{width:108px;height:108px;flex:none;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 14px #15327f22}
+.bio{font-size:.9rem;color:var(--sub);margin:-6px 6px 20px;white-space:pre-line}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.row{display:flex;align-items:stretch;gap:0}
+.tab{flex:none;width:34px;margin-right:-8px;border-radius:12px 0 0 12px;background:var(--hi);border:1px solid var(--line);border-right:0;display:flex;align-items:center;justify-content:flex-start;padding-left:7px;color:var(--navy)}
+.tab svg{width:16px;height:16px}
+.card{flex:1;min-width:0;position:relative;display:block;background:var(--card);backdrop-filter:blur(4px);border:1px solid var(--line);border-radius:14px;padding:14px 38px 14px 16px;text-decoration:none;color:inherit;transition:transform .08s,border-color .15s,box-shadow .15s}
+a.card:hover{border-color:var(--navy);box-shadow:0 2px 10px #15327f14}
+a.card:active{transform:scale(.985)}
+a.card::after{content:"›";position:absolute;right:16px;top:50%;transform:translateY(-52%);font-size:1.4rem;color:var(--navy);font-weight:600}
+.hi .card{background:linear-gradient(135deg,#fff6dc,#ffe9a8);border-color:#f2d27a}
+.hi .tab{background:#ffe9a8;border-color:#f2d27a}
+.t{font-weight:700;font-size:1rem;margin:0;color:var(--navy-ink)}
+.d{font-size:.8rem;color:var(--sub);margin:3px 0 0}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--navy-ink);background:var(--hi);border:1px solid var(--line);border-radius:8px;padding:7px 11px;text-decoration:none}
+.pill:hover{border-color:var(--navy)}
+.pill svg{width:15px;height:15px}
+.grp .card{padding-right:16px}
+.site .card{display:flex;align-items:center;gap:10px;padding:10px 12px 10px 16px}
+.site .t{flex:1}
+.site .pills{margin:0;flex:none;gap:8px}
+.site .pill{padding:4px 10px;border-radius:10px;background:#fff}
+.site .pill .flag{font-size:1.5rem;line-height:1}
+.mailbox{display:flex;align-items:center;gap:10px;padding-right:12px}
+.mailbox .who2{flex:1;min-width:0}
+.mailbox .d{font-size:.86rem;color:var(--navy-ink);word-break:break-all;user-select:all}
+.copy{flex:none;border:1px solid var(--navy);background:var(--navy);color:#fff;font:inherit;font-size:.76rem;font-weight:700;border-radius:10px;padding:8px 10px;cursor:pointer;line-height:1.3;max-width:9.5em}
+.copy.done{background:#fff;color:var(--navy)}
+footer{text-align:center;font-size:.72rem;color:var(--sub);margin-top:34px}
+footer a{color:inherit}
+.hide{display:none!important}
+.lang{position:fixed;top:max(12px,env(safe-area-inset-top));right:12px;display:flex;gap:4px;background:#ffffffd9;backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:999px;padding:3px;z-index:10}
+.lang button{border:0;background:none;font:inherit;font-size:.78rem;font-weight:700;color:var(--sub);padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.lang button{display:inline-flex;align-items:center;gap:4px}
+.lang .flag{font-size:1.35rem;line-height:1}
+.lang button{padding:5px 8px}
+.lang button[aria-pressed="true"]{background:none}
+.lang button{position:relative;z-index:1}
+.lang .ring{position:absolute;top:3px;left:0;height:0;width:0;border-radius:999px;background:#e6ecf8;box-shadow:inset 0 0 0 2px var(--navy);transition:transform .25s ease,width .25s ease;pointer-events:none}
+.lang{position:fixed}
+</style>
+</head>
+<body>
+<nav class="lang" aria-label="Language">
+  <button type="button" data-lang="ja" lang="ja" aria-label="日本語" title="日本語"><span class="flag" aria-hidden="true">🇯🇵</span></button>
+  <button type="button" data-lang="en" lang="en" aria-label="English" title="English"><span class="flag" aria-hidden="true">🇬🇧</span></button>
+  <button type="button" data-lang="zh" lang="zh-Hans" aria-label="中文" title="中文"><span class="flag" aria-hidden="true">🇨🇳</span></button>
+  <span class="ring" aria-hidden="true"></span>
+</nav>
+<main>
+  <header>
+    <div class="who">
+      <div class="brand">
+        <img class="logo" id="logo" src="data:image/webp;base64,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" alt="YATAI SCHOOL">
+        <p class="title" id="title"></p>
+      </div>
+      <h1 class="name" id="name"></h1>
+      <p class="name-ja" id="nameja" lang="ja"></p>
+    </div>
+    <img class="photo hide" id="photo" alt="">
+  </header>
+  <p class="bio hide" id="bio"></p>
+  <ul id="links"></ul>
+  <footer id="foot">一般社団法人カンボジア YATAI SCHOOL</footer>
+</main>
+<script>
+/* 中身の編集は Google スプレッドシートで行う。下の FALLBACK は読み込めなかった時の控え。 */
+var SHEET_ID = "1C-6ju-JZ2Y0RAB4ESd_7rWJfR6THV-_qDhO83A8GZM4";
+var CACHE_KEY = "yatai-card-v6";
+// 列: 種類, 表示名, 説明, URL, アイコン, 強調, 表示する, 表示名(英語), 説明(英語), 表示名(中国語), 説明(中国語)
+var FALLBACK = [
+  ["ロゴ","","","","","","○"],
+  ["名前","東川 竜太","","","","","○","Ryuta Higashikawa","","Ryuta Higashikawa",""],
+  ["肩書き","NGO YATAI for Children Organization","","","","","○"],
+  ["肩書き","YATAI SCHOOL Principal","","","","","○"],
+  ["リンク","動画でわかる YATAI SCHOOL","チャンネル登録よろしくお願いします","https://www.youtube.com/@RYUCHANNEL_YATAISCHOOL","youtube","○","○","YATAI SCHOOL on YouTube","Please subscribe to our channel","视频了解 YATAI SCHOOL","欢迎订阅我们的频道"],
+  ["サイト","公式 webサイト","","","web","","○","Official Website","","官方网站",""],
+  ["サイトボタン","🇯🇵","日本語","http://yatai-school.com/","","","○","","Japanese","","日语"],
+  ["サイトボタン","🇬🇧","English","https://yatai-for-children.org.kh/","","","○","","English","","英语"],
+  ["リンク","公式LINE","","https://line.me/R/ti/p/@557uooum","line","","○","Official LINE","","官方 LINE",""],
+  ["リンク","メールを送る","","mailto:contactcambodia@yatai-school.org","mail","","○","Send an Email","","发送邮件",""]
+];
+var UI = {
+  ja:{foot:"一般社団法人カンボジア YATAI SCHOOL", title:"YATAI SCHOOL リンク集", html:"ja", copy:"メールアドレスをコピー", copied:"コピーしました"},
+  en:{foot:"Cambodia YATAI SCHOOL", title:"YATAI SCHOOL Links", html:"en", copy:"Copy email address", copied:"Copied"},
+  zh:{foot:"一般社团法人 柬埔寨 YATAI SCHOOL", title:"YATAI SCHOOL 链接", html:"zh-Hans", copy:"复制邮箱地址", copied:"已复制"}
+};
+var LANG = (function(){
+  var m = location.search.match(/[?&]lang=(ja|en|zh)/), v = m ? m[1] : "";
+  try { v = v || localStorage.getItem("yatai-lang") || ""; } catch(e) {}
+  if (!v) { var n = (navigator.language || "ja").toLowerCase(); v = n.indexOf("ja") === 0 ? "ja" : n.indexOf("zh") === 0 ? "zh" : "en"; }
+  return v;
+})();
+var LAST_ROWS = null;
+
+var P = 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
+var ICONS = {
+  line:'<path d="M21 11.5c0 4.1-4 7.5-9 7.5-.9 0-1.8-.1-2.6-.3L5 20.5l1-3.4C4.2 15.8 3 13.8 3 11.5 3 7.4 7 4 12 4s9 3.4 9 7.5z"/>',
+  mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+  web:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+  people:'<circle cx="9" cy="8" r="3.2"/><path d="M3 19c.6-3 3-5 6-5s5.4 2 6 5"/><path d="M16 5.2a3 3 0 0 1 0 5.6M18 14.3c1.6.7 2.7 2.4 3 4.7"/>',
+  book:'<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/>',
+  video:'<rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/>',
+  youtube:'<rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="m10 9.5 5 2.5-5 2.5z"/>',
+  instagram:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/>',
+  facebook:'<path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/>',
+  phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
+  map:'<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+  heart:'<path d="M12 20s-7-4.4-9-9.2C1.7 7.3 4 4 7.3 4c2 0 3.6 1.1 4.7 2.8C13.1 5.1 14.7 4 16.7 4 20 4 22.3 7.3 21 10.8 19 15.6 12 20 12 20z"/>',
+  calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  link:'<path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/>'
+};
+var ALIAS = {"ライン":"line","メール":"mail","サイト":"web","web":"web","人":"people","本":"book","動画":"video","電話":"phone","地図":"map","寄付":"heart","予定":"calendar"};
+function icon(name){
+  name = String(name||"").trim(); name = ALIAS[name] || name.toLowerCase();
+  return '<svg viewBox="0 0 24 24" '+P+'>'+(ICONS[name]||ICONS.link)+'</svg>';
+}
+function safeUrl(u){
+  u = String(u||"").trim();
+  if (/^(https?:\/\/|mailto:|tel:)/i.test(u)) return u;
+  if (/^[\w.\-\/]+\.(png|jpe?g|webp|svg|gif)$/i.test(u)) return u; // 同じ場所に置いた画像
+  return "";
+}
+function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+function on(v){ v=String(v==null?"":v).trim(); return v!=="" && v!=="false" && v!=="FALSE" && v!=="×" && v!=="0"; }
+
+function render(rows){
+  LAST_ROWS = rows;
+  var ui = UI[LANG] || UI.ja;
+  document.documentElement.lang = ui.html;
+  document.getElementById("foot").textContent = ui.foot;
+  Array.prototype.forEach.call(document.querySelectorAll(".lang button"), function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-lang") === LANG ? "true" : "false"); });
+  moveRing();
+  var list = document.getElementById("links"); list.textContent = "";
+  var bio = document.getElementById("bio"), photo = document.getElementById("photo"), logo = document.getElementById("logo");
+  bio.classList.add("hide"); photo.classList.add("hide");
+  var titleEl = document.getElementById("title"), titles = [];
+  var group = null;
+  rows.forEach(function(r){
+    var kind=String(r[0]||"").trim(), label=String(r[1]||"").trim(), desc=String(r[2]||"").trim(),
+        url=safeUrl(r[3]), ic=r[4], hi=on(r[5]), show=on(r[6]);
+    var off = LANG === "en" ? 7 : LANG === "zh" ? 9 : -1;
+    if (off > 0) {
+      var tl = String(r[off]||"").trim(), td = String(r[off+1]||"").trim();
+      if (tl) { label = tl; desc = td; } // 訳が無い行は日本語のまま
+    }
+    if (kind !== "小ボタン" && kind !== "サイトボタン") group = null;
+    if (!show) return;
+    if (kind === "名前") { // ローマ字を大きく、下に日本語を小さく（どの言語でも同じ）
+      var ja = String(r[1]||"").trim(), en = String(r[7]||"").trim() || ja;
+      document.getElementById("name").textContent = en;
+      document.getElementById("nameja").textContent = ja !== en ? ja : "";
+      document.title = en + "｜" + UI[LANG].title; }
+    else if (kind === "肩書き") titles.push(label);
+    else if (kind === "紹介文") { bio.textContent = label; bio.classList.toggle("hide", !label); }
+    else if (kind === "ロゴ") { if (url) logo.src = url; }
+    else if (kind === "写真") { if (url) { photo.src = url; photo.alt = label; photo.classList.remove("hide"); } }
+    else if (kind === "リンク" || kind === "グループ" || kind === "サイト") {
+      if (!label || (kind === "リンク" && !url)) return;
+      var li = el("li", "row" + (hi ? " hi" : "") + (kind === "グループ" ? " grp" : kind === "サイト" ? " grp site" : ""));
+      var tab = el("span", "tab"); tab.innerHTML = icon(ic); li.appendChild(tab);
+      if (kind === "リンク" && /^mailto:/i.test(url)) { // メールはアプリを開かず、アドレス表示＋コピー
+        var addr = url.replace(/^mailto:/i, "").split("?")[0];
+        var box = el("div", "card mailbox"), who = el("div", "who2");
+        who.appendChild(el("p", "t", label)); who.appendChild(el("p", "d", addr)); box.appendChild(who);
+        var btn = el("button", "copy", ui.copy); btn.type = "button"; btn.setAttribute("data-addr", addr);
+        box.appendChild(btn); li.appendChild(box); list.appendChild(li); return;
+      }
+      var card = el(kind === "リンク" ? "a" : "div", "card");
+      if (kind === "リンク") { card.href = url; if (/^https?:/i.test(url)) { card.target = "_blank"; card.rel = "noopener"; } }
+      card.appendChild(el("p", "t", label));
+      if (desc) card.appendChild(el("p", "d", desc));
+      li.appendChild(card); list.appendChild(li);
+      if (kind === "グループ" || kind === "サイト") { group = { li: li, box: el("div", "pills") }; card.appendChild(group.box); }
+    }
+    else if (kind === "サイトボタン") { // 公式サイトの右に並ぶ国旗ボタン。表示名=国旗、説明=読み上げ名
+      if (!group || !url) return;
+      var f = el("a", "pill"); f.href = url; f.target = "_blank"; f.rel = "noopener";
+      f.setAttribute("aria-label", desc || String(r[2]||"")); f.title = desc || String(r[2]||"");
+      f.appendChild(el("span", "flag", String(r[1]||"").trim())); f.setAttribute("data-track", "site-" + (String(r[2]||"").trim() || "x"));
+      group.box.appendChild(f);
+    }
+    else if (kind === "小ボタン") {
+      if (!group || !label || !url) return;
+      var a = el("a", "pill"); a.href = url; if (/^https?:/i.test(url)) { a.target = "_blank"; a.rel = "noopener"; }
+      a.innerHTML = icon(ic); a.appendChild(document.createTextNode(label));
+      group.box.appendChild(a);
+    }
+  });
+  titleEl.textContent = titles.join("\n");
+  // 小ボタンが1つも無いグループは隠す
+  Array.prototype.forEach.call(list.querySelectorAll(".grp"), function(li){ if (!li.querySelector(".pill")) li.remove(); });
+}
+function moveRing(){ // 選択中の国旗へ青い丸枠を移動
+  var nav = document.querySelector(".lang"), ring = nav.querySelector(".ring"), b = nav.querySelector('button[data-lang="' + LANG + '"]');
+  if (!ring || !b) return;
+  ring.style.width = b.offsetWidth + "px"; ring.style.height = b.offsetHeight + "px";
+  ring.style.top = b.offsetTop + "px"; ring.style.transform = "translateX(" + b.offsetLeft + "px)";
+}
+window.addEventListener("resize", moveRing);
+window.yataiLinks = function(resp){
+  try {
+    var rows = (resp.table.rows||[]).map(function(row){ return (row.c||[]).map(function(c){ return c && c.v != null ? c.v : ""; }); });
+    if (!rows.length) return;
+    render(rows);
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify(rows)); } catch(e) {}
+  } catch(e) {}
+};
+document.querySelector(".lang").addEventListener("click", function(e){
+  var b = e.target.closest && e.target.closest("button[data-lang]");
+  if (!b || b.getAttribute("data-lang") === LANG) return;
+  LANG = b.getAttribute("data-lang");
+  try { localStorage.setItem("yatai-lang", LANG); } catch(e) {}
+  render(LAST_ROWS || FALLBACK);
+  track("lang", LANG);
+});
+/* ---- 流入経路の計測（Cookie なし・個人を特定しない） ----
+   QR やSNSに載せるURLに ?s=経路名 を付ける（例 ?s=card = 名刺）。
+   開いた時と各ボタンを押した時に hit.gif へ記録し、サーバーのログを集計する。 */
+var SRC = (function(){
+  var m = location.search.match(/[?&]s=([\w\-]{1,32})/);
+  var s = m ? m[1] : "";
+  try {
+    if (s) sessionStorage.setItem("yatai-src", s); else s = sessionStorage.getItem("yatai-src") || "";
+  } catch(e) {}
+  if (!s) {
+    var r = ""; try { r = document.referrer ? new URL(document.referrer).hostname : ""; } catch(e) {}
+    s = r && r !== location.hostname ? "ref:" + r : "direct";
+  }
+  if (m && history.replaceState) history.replaceState(null, "", location.pathname); // 共有された時に経路が引き継がれないよう消す
+  return s;
+})();
+// 記録先: GitHub Pages 等に置く時は VPS 側の hit.gif を指す（そこで nginx ログに残る）
+var HIT_URL = "https://share.crazy-ai-orchestra.com/yatai/hit.gif";
+function copyText(t, btn){
+  function ok(){ var u = UI[LANG] || UI.ja; btn.textContent = u.copied; btn.classList.add("done");
+    setTimeout(function(){ btn.textContent = u.copy; btn.classList.remove("done"); }, 2000); }
+  function legacy(){ var ta = document.createElement("textarea"); ta.value = t; ta.setAttribute("readonly", "");
+    ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, t.length);
+    try { document.execCommand("copy"); } catch(e) {} document.body.removeChild(ta); ok(); }
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(ok, legacy); else legacy();
+}
+function track(ev, to){
+  return; // 確認用ページでは計測しない
+  var q = HIT_URL + "?e=" + ev + "&s=" + encodeURIComponent(SRC) + (to ? "&to=" + encodeURIComponent(to) : "") + "&t=" + Date.now();
+  try { if (navigator.sendBeacon && navigator.sendBeacon(q)) return; } catch(e) {}
+  (new Image()).src = q;
+}
+document.getElementById("links").addEventListener("click", function(e){
+  var c = e.target.closest && e.target.closest("button.copy");
+  if (c) { copyText(c.getAttribute("data-addr"), c); track("click", "copy-email"); return; }
+  var a = e.target.closest && e.target.closest("a");
+  if (a) track("click", a.getAttribute("data-track") || (a.querySelector(".t") || a).textContent.trim().slice(0, 40));
+});
+track("view");
+
+(function(){
+  var cached = null;
+  try { cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "null"); } catch(e) {}
+  render(cached || FALLBACK);
+  var s = document.createElement("script");
+  s.src = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?headers=1&tqx=responseHandler:yataiLinks;out:json&t=" + Date.now();
+  s.async = true; document.body.appendChild(s);
+})();
+</script>
+</body>
+</html>
